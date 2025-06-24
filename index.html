@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麻將記帳 App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🀄 麻將記帳</h1>
+        <form id="record-form">
+            <label>日期：
+                <input type="date" id="date" required>
+            </label><br>
+            <label>地點：
+                <input type="text" id="location" required>
+            </label><br>
+            <label>大小：
+                <select id="stake">
+                    <option value="五二">五二</option>
+                    <option value="百二">百二</option>
+                </select>
+            </label><br>
+            <label>輸贏金額：
+                <input type="number" id="amount" required>
+            </label><br>
+            <button type="submit">儲存紀錄</button>
+        </form>
+
+        <h2 id="toggle-history" style="cursor: pointer; margin-top: 1.5em;">
+            歷史紀錄（點擊展開OR收合）
+        </h2>
+        <div id="history-section" style="display: none;">
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>日期</th><th>地點</th><th>大小</th><th>輸贏</th><th>操作</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <h2>統計結果：</h2>
+        <ul id="stats">
+            <li>五二總輸贏：<span id="fifty-two-total">0</span></li>
+            <li>百二總輸贏：<span id="hundred-two-total">0</span></li>
+            <li>總輸贏：<span id="grand-total">0</span></li>
+        </ul>
+
+        <h3>輸贏走勢圖：</h3>
+        <canvas id="trend-chart" height="200"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
